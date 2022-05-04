@@ -27,3 +27,5 @@ jobs:
       #if: github.event_name == 'pull_request'
       run: terraform plan -no-color -input=false
       continue-on-error: true
+      env:
+        export OS_CLOUD: 'openstack'
