@@ -14,7 +14,10 @@ jobs:
     
     - name: Checkout
       uses: actions/checkout@v3
-
+      
+    - name: Getting Statefile from static directory
+      run: cp /actions-runner/terraform.tfstate .
+      
     - name: Terraform Init
       id: init
       run: terraform init
@@ -30,3 +33,6 @@ jobs:
   
     - name: Terraform Apply
       run: terraform apply -auto-approve -input=false
+      
+    - name: Saving Statefile to static directory
+      run: cp terraform.tfstate /actions-runner/terraform.tfstate
