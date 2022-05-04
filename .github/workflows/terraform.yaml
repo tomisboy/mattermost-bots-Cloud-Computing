@@ -9,7 +9,7 @@ on:
 jobs:
  terraform:
     name: 'Terraform'
-    runs-on: aws
+    runs-on: self-hosted
     steps:
     
     - name: Checkout
