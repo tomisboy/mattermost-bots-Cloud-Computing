@@ -18,7 +18,7 @@ jobs:
     - name: Setting up terraform credentials
       run: export OS_CLOUD=openstack
     - name: Checking terraform credentials
-      run: cat ~/.config/openstack/clouds.yaml && env | grep OS_CLOUD
+      run: env | grep OS_CLOUD
     - name: Terraform Init
       id: init
       run: terraform init
