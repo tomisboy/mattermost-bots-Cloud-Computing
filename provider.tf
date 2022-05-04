@@ -5,3 +5,7 @@ terraform {
     }
   }
 }
+provider "openstack" {
+  cloud      = "openstack" //uses the ~/.config/openstack/clouds.yaml file
+}
+
