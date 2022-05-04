@@ -7,7 +7,7 @@ on:
   pull_request:
   
 jobs:
-  terraform:
+ terraform:
     name: 'Terraform'
     runs-on: aws
     steps:
