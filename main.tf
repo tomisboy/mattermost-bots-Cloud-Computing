@@ -27,6 +27,7 @@ resource "openstack_compute_instance_v2" "mattermost-bots" {
       type = "ssh"
       host = self.access_ip_v4
       user = "ubuntu"
+      private_key = "${file("~/.ssh/id_rsa")}"
       # private_key = file("~/.ssh/id_rsa")
     }
     inline = [
@@ -60,7 +61,7 @@ resource "null_resource" "softwareconfig" {
     host = openstack_compute_instance_v2.mattermost-bots.access_ip_v4
     user = "ubuntu"
     port = 22
-    private_key = ~/.ssh/id_rsa
+    private_key = "${file("~/.ssh/id_rsa")}"
     
   }
 
