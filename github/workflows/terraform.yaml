@@ -1,0 +1,29 @@
+name: 'Terraform'
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  
+jobs:
+  terraform:
+    name: 'Terraform'
+    runs-on: aws
+    steps:
+    
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Setting up terraform credentials
+      run: touch  ~/.config/openstack/clouds.yaml $$ echo echo "${{ secrets.OPENSTACK_CREDENTIALS }}" >> ~/.config/openstack/clouds.yaml && export OS_CLOUD=openstack
+    
+    - name: Terraform Init
+      id: init
+      run: terraform init
+      
+      - name: Terraform Plan
+      id: plan
+      #if: github.event_name == 'pull_request'
+      run: terraform plan -no-color -input=false
+      continue-on-error: true
