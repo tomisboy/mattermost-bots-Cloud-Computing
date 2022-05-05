@@ -24,11 +24,6 @@ jobs:
       id: init
       run: terraform init
       
-    - name: Terraform Plan
-      id: plan
-      run: terraform plan -no-color -input=false
-      continue-on-error: true
-      
     - name: Terraform destroy
       run: terraform destroy -auto-approve -input=false
   
@@ -36,4 +31,5 @@ jobs:
       run: terraform apply -auto-approve -input=false
       
     - name: Saving Statefile to static directory
-      run: cp terraform.tfstate* /actions-runner/
+      run: cp terraform.tfstate* /actions-runner/  
+      if: always()
