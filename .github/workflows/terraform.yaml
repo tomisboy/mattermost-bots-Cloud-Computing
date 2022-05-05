@@ -16,7 +16,7 @@ jobs:
       uses: actions/checkout@v3
       
     - name: Getting Statefile from static directory
-      run: cp /actions-runner/terraform.tfstate .
+      run: cp /actions-runner/terraform.tfstate* .
       
     - name: Setting API Secret
       run: sed -in s/SECRETAPI/${{ secrets.API }}/g docker/mattermost-bots/src/main/resources/application.properties
@@ -37,4 +37,4 @@ jobs:
       run: terraform apply -auto-approve -input=false
       
     - name: Saving Statefile to static directory
-      run: cp terraform.tfstate /actions-runner/terraform.tfstate
+      run: cp terraform.tfstate* /actions-runner/
