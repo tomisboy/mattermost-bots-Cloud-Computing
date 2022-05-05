@@ -54,7 +54,6 @@ public class WeatherService {
         return WebHookResponseWeather.builder()
                 .text("### Weather forecast for " + city)
                 .response_type("in_channel")
-                .username("Weathergirl")
                 .attachments(List.of(weatherAttachment))
                 .build();
 

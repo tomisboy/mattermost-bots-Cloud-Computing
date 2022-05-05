@@ -14,7 +14,6 @@ import java.util.List;
 @NoArgsConstructor
 public class WebHookResponseWeather {
     private String response_type;
-    private String username;
     private String text;
-    private List<WebHookResponseWeatherAttachment> attachments = new LinkedList<>();
+    private List<WebHookResponseWeatherAttachment> attachments;
 }

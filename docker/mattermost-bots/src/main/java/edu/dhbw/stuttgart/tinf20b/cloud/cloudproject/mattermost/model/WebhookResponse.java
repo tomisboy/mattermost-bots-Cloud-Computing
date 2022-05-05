@@ -11,6 +11,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class WebhookResponse {
     private String text;
-    private String username;
-    private String response_type = "ephemeral";
+    private String response_type;
 }

@@ -82,7 +82,6 @@ public class CleverbotService {
 
         return WebhookResponse.builder()
                 .text(response)
-                .username("Cleverbot")
                 .response_type("in_channel")
                 .build();
     }

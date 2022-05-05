@@ -35,7 +35,6 @@ public class TranslatorService {
         }
         return WebhookResponse.builder()
                 .text(response)
-                .username("Translator Bot")
                 .build();
     }
 }
