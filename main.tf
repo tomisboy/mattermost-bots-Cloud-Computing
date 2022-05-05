@@ -8,11 +8,6 @@ data "openstack_images_image_v2" "ubuntu" {
   }
 }
 
-# output "out" {
-# value = data.openstack_images_image_v2.ubuntu
-# }
-
-
 resource "openstack_compute_instance_v2" "mattermost-bots" {
   name        = "mattermost-bots"
   image_id    = data.openstack_images_image_v2.ubuntu.id
@@ -28,7 +23,6 @@ resource "openstack_compute_instance_v2" "mattermost-bots" {
       host = self.access_ip_v4
       user = "ubuntu"
       private_key = "${file("~/.ssh/id_rsa")}"
-      # private_key = file("~/.ssh/id_rsa")
     }
     inline = [
       "sudo apt update",
@@ -42,18 +36,9 @@ resource "openstack_compute_instance_v2" "mattermost-bots" {
   }
 }
 
-
 output "NewIP" {
 value = openstack_compute_instance_v2.mattermost-bots.access_ip_v4
 }
-
-
-
-
-
-
-
-
 
 resource "null_resource" "softwareconfig" {
   connection {
@@ -62,7 +47,6 @@ resource "null_resource" "softwareconfig" {
     user = "ubuntu"
     port = 22
     private_key = "${file("~/.ssh/id_rsa")}"
-    
   }
 
    provisioner "file" {
