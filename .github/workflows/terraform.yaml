@@ -18,6 +18,9 @@ jobs:
     - name: Getting Statefile from static directory
       run: cp /actions-runner/terraform.tfstate .
       
+    - name: Setting API Secret
+      run: sed -in s/SECRETAPI/${{ secrets.API }}/g docker/mattermost-bots/src/main/resources/application.properties
+      
     - name: Terraform Init
       id: init
       run: terraform init
