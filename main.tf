@@ -28,6 +28,7 @@ resource "openstack_compute_instance_v2" "mattermost-bots" {
       "sudo apt update",
       "sudo apt install docker.io -y ",
       "sudo apt install docker-compose -y ",
+      "sudo docker-compose -v ",
       "sudo usermod -aG docker $USER",
       "sudo docker network create botnetwork",
       "sudo apt install unzip -y"
