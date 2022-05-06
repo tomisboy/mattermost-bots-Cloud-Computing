@@ -15,15 +15,15 @@ public class WeatherForecastDaily {
 
     private long dt;
     private WeatherForecastDailyTemp temp;
-    private long pressure;
-    private long humidity;
-    private long dew_point;
-    private long wind_speed;
-    private long wind_deg;
-    private long wind_gust;
+    private double pressure;
+    private double humidity;
+    private double dew_point;
+    private double wind_speed;
+    private double wind_deg;
+    private double wind_gust;
     private List<WeatherForecastDailyWeather> weather;
-    private long clouds;
-    private long pop;
-    private long uvi;
+    private double clouds;
+    private double pop;
+    private double uvi;
 
 }

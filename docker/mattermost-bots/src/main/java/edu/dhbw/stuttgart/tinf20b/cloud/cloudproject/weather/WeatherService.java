@@ -31,7 +31,7 @@ public class WeatherService {
     public WebHookResponseWeather weatherCommand(String text) {
 
         String city;
-        long lat, lon;
+        double lat, lon;
         WebHookResponseWeatherAttachment weatherAttachment;
 
         List<WeatherLocation> locations = weatherConnector.getLocation(text, this.apiKey);
@@ -73,10 +73,10 @@ public class WeatherService {
             weatherEntityString.add(getWeekday(weatherForecast.getDaily().get(i).getDt()));
             weatherEntityString.add("![ " + weatherForecast.getDaily().get(i).getWeather().get(0).getDescription() + " ](" + iconUrl + weatherForecast.getDaily().get(i).getWeather().get(0).getIcon() + ".png)");
             weatherEntityString.add(weatherForecast.getDaily().get(i).getWeather().get(0).getDescription());
-            weatherEntityString.add(String.valueOf(weatherForecast.getDaily().get(i).getTemp().getMax()));
-            weatherEntityString.add(String.valueOf(weatherForecast.getDaily().get(i).getTemp().getMin()));
-            weatherEntityString.add(String.valueOf(weatherForecast.getDaily().get(i).getPop() * 100) + "%");
-            weatherEntityString.add(String.valueOf(weatherForecast.getDaily().get(i).getHumidity()) + "%");
+            weatherEntityString.add(String.valueOf(weatherForecast.getDaily().get(i).getTemp().getMax()) + "°C");
+            weatherEntityString.add(String.valueOf(weatherForecast.getDaily().get(i).getTemp().getMin()) + "°C");
+            weatherEntityString.add(String.valueOf((int) (weatherForecast.getDaily().get(i).getPop() * 100)) + "%");
+            weatherEntityString.add(String.valueOf((int) (weatherForecast.getDaily().get(i).getHumidity())) + "%");
             weatherEntityString.add(String.valueOf(weatherForecast.getDaily().get(i).getWind_speed() + " m/s"));
 
             tableList.add(weatherEntityString);

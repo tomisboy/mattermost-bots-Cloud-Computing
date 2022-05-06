@@ -11,11 +11,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class WeatherForecastDailyTemp {
 
-    private long day;
-    private long min;
-    private long max;
-    private long night;
-    private long eve;
-    private long morn;
+    private double day;
+    private double min;
+    private double max;
+    private double night;
+    private double eve;
+    private double morn;
 
 }

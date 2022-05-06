@@ -16,8 +16,8 @@ public interface WeatherConnector {
 
 
     @GetMapping("/data/2.5/onecall")
-    WeatherForecast getWeather(@RequestParam long lat,
-                               @RequestParam long lon,
+    WeatherForecast getWeather(@RequestParam double lat,
+                               @RequestParam double lon,
                                @RequestParam String appid,
                                @RequestParam String exclude,
                                @RequestParam String units);
