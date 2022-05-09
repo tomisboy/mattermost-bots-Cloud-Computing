@@ -1,4 +1,4 @@
-resource "openstack_networking_secgroup_v2" "mattermosts-bot" {
+resource "openstack_networking_secgroup_v2" "mattermost-bots" {
   name        = "mattermost-bots"
   description = "mattermost-bots open 80"
 }
