@@ -13,7 +13,7 @@ resource "openstack_compute_instance_v2" "mattermost-bots" {
   image_id    = data.openstack_images_image_v2.ubuntu.id
   flavor_name = "m1.small"
   key_pair    = "talpert"
-  metadata    = { this = "if this works you can read me" }
+  metadata    = { this = "if this works you can read me :)" }
   security_groups = ["mattermost-bots", "default" ]
 
   provisioner "remote-exec" {
